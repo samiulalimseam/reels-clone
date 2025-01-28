@@ -1,0 +1,70 @@
+{
+    "UGCVideoManager_template_1": {
+      "webpage": {
+        "content": {
+          "general": {
+            "showTitle": false,
+            "title": "Video Title"
+          },
+          "videoContent": {
+            "type": "automatic",
+            "videos": []
+          },
+          "galleryLayout": {
+            "layout": "slider"
+          },
+          "videoBehavior": {
+            "showAutoPlay": true,
+            "showVideosShoppable": true,
+            "showStartOnMute": true
+          },
+          "playerSettings": {
+            "playerViewMode": "reels",
+            "playerPosition": "right",
+            "showTransparentLayer": true,
+            "opacity": "25%",
+            "showAutoScrollToNestVideo": false
+          },
+          "playIcon": {
+            "showPlayIcon": true,
+            "uploadIcon": "one"
+          }
+        },
+        "style": {
+          "general": {
+            "alignment": "start",
+            "titleColor": "#000000",
+            "titleFontFamily": "",
+            "titleFontSize": "32px",
+            "titleFontWeight": "Bold"
+          },
+          "video": {
+            "alignment": "center",
+            "width": "397px",
+            "height": "488px",
+            "videoBorderType": "none",
+            "videoBorderRadius": {
+              "top": "0px",
+              "right": "0px",
+              "bottom": "0px",
+              "left": "0px"
+            }
+          },
+          "playIcon": {
+            "iconSize": "50px",
+            "iconColor": "#0AEF09",
+            "playIconBackgroundType": "none",
+            "playIconBackgroundColor": "#fff",
+            "playIconBorderType": "none"
+          }
+        },
+        "advance": {
+          "devices": {
+            "showOnMobile": true,
+            "showOnTablet": true,
+            "showOnDesktop": true
+          }
+        }
+      }
+    }
+  }

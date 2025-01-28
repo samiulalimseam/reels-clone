@@ -1,17 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import './App.css'
-import VerticalPlayer from './components/verticalPlayer'
+import ConfigEditor from './components/configEditor'
+import DataProvider from './components/data'
+import MainLayout from './components/layout'
 import VidoeCarousel from './components/VidoeCarousel'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  if (window.Shopify) {
+    return <ConfigEditor />
+  }
   return (
-    <>
-      <VidoeCarousel />
-    </>
+
+    <Router>
+      <Routes>
+        <Route path='/' element={<MainLayout />} >
+          <Route path="/api/data" element={<DataProvider />} />
+          <Route path="/" element={<ConfigEditor />} />
+          <Route path="/preview" element={<VidoeCarousel />} />
+        </Route>
+      </Routes>
+    </Router>
+
   )
 }
 

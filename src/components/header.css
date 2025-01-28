@@ -1,0 +1,35 @@
+/* Header container */
+.header {
+    background-color: #333;
+    padding: 15px 20px;
+  }
+  
+  /* Navigation bar */
+  .nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* List styles */
+  .nav-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Navigation items */
+  .nav-item {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .nav-item:hover {
+    color: #f4a261;
+  }
+  
