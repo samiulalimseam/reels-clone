@@ -14,8 +14,8 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<MainLayout />} >
-          <Route path="/api/data" element={<DataProvider />} />
           <Route path="/" element={<ConfigEditor />} />
+          <Route path="/api/data" element={<DataProvider />} />
           <Route path="/preview" element={<VidoeCarousel />} />
         </Route>
       </Routes>

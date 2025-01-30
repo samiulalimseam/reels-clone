@@ -9,11 +9,12 @@ const ConfigEditor = () => {
   const [loading, setLoading] = useState(false);
   const [configData, setConfigData] = useState(null);
   const property = configData?.UGCVideoManager_template_1
+  const api_url = window.Shopify ? "https://cdn.shopify.com/s/files/1/0662/8199/6426/files/config.json" : backendURL + "/data/config.json"
 
   // Load the config data when the component mounts
   useEffect(() => {
     setLoading(true);
-    fetch(backendURL + "/data/config.json")
+    fetch(api_url)
       .then((response) => response.json())
       .then((data) => setConfigData(data))
       .catch((err) => console.error("Failed to load config.json", err))

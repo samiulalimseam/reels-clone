@@ -9,6 +9,10 @@ import RenderIcon from './RenderIcon';
 export default function VidoeCarousel({ property }) {
     const [viewSidePlayer, setViewSidePlayer] = useState(false);
     const [initialVideo, setInitialVideo] = useState(0);
+    const [dynUGCProperties, setDynUGCProperties] = useState(null);
+    console.log('- 💎 file: VidoeCarousel.jsx:14 💎 VidoeCarousel 💎 dynUGCProperties:', dynUGCProperties)
+    const widgetData = window.DynUGCProperties ?? property
+    console.log('- 💎 file: VidoeCarousel.jsx:15 💎 VidoeCarousel 💎 widgetData:', widgetData)
     const {
         webpage: { content:
             { playIcon,
@@ -22,13 +26,23 @@ export default function VidoeCarousel({ property }) {
                 playIcon: playIconStyle
 
             } }
-    } = property || {};
+    } = widgetData || {};
     console.log("playIcon", playIcon);
     const showVideoTitle = false
     const playVideo = (video) => {
         setViewSidePlayer(true);
         setInitialVideo(videos.indexOf(video));
     }
+
+    useEffect(() => {
+        const element = document.getElementById("dynamatic-shoppable-root");
+        if (element) {
+            const attribute = element.getAttribute("data-ugc-property");
+            if (attribute) {
+                setDynUGCProperties(attribute);
+            }
+        }
+    }, [viewSidePlayer])
 
     const playerStyles = `.dyn-shoppable-video-player > div > video {
   border-radius: 10px;
@@ -60,7 +74,7 @@ export default function VidoeCarousel({ property }) {
                 {
                     layout === "slider" &&
                     <Swiper
-                        slidesPerView={3}
+                        slidesPerView={5}
                         spaceBetween={30}
                         pagination={{
                             clickable: true,
@@ -132,7 +146,7 @@ export default function VidoeCarousel({ property }) {
                                             style={{
                                                 objectFit: "cover",
                                                 borderRadius: "10px",
-                                            }} url={video.url} alt={video.title} onClick={() => { }} />
+                                            }} url={video?.video_url} alt={video?.title} onClick={() => { }} />
                                     </div>
                                 </SwiperSlide>
                             ))
@@ -142,6 +156,7 @@ export default function VidoeCarousel({ property }) {
 
             </div>
             {viewSidePlayer && playerViewMode === "reels" && <VerticalPlayer
+                videos={videos}
                 playerSettings={{ playerViewMode, playerPosition, opacity, showAutoScrollToNestVideo, showTransparentLayer }}
                 videoBehavior={videoBehavior}
                 initialVideo={initialVideo}
